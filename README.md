@@ -148,7 +148,8 @@ The repository includes the demo examples in my presentation of ROS Taiwan 2025.
   tmux
   ```
 
-* Run turtlesim
+* Run `turtlesim`
+  * Assume the IP you want to connect is 172.17.0.4
 
   ```bash
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
@@ -166,7 +167,8 @@ The repository includes the demo examples in my presentation of ROS Taiwan 2025.
   tmux
   ```
 
-* Run teleop
+* Run `teleop`
+  * Assume the IP you want to connect is 172.17.0.4
 
   ```bash
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
