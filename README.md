@@ -16,6 +16,7 @@ The repository includes the demo examples in my presentation of ROS Taiwan 2025.
 
   ```bash
   # Terminal 1
+  unset ZENOH_ROUTER_CONFIG_URI
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
   ros2 run rmw_zenoh_cpp rmw_zenohd
   # Terminal 2
@@ -40,6 +41,7 @@ The repository includes the demo examples in my presentation of ROS Taiwan 2025.
 
   ```bash
   # Terminal 1
+  unset ZENOH_ROUTER_CONFIG_URI
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
   ros2 run rmw_zenoh_cpp rmw_zenohd
   # Terminal 2
@@ -63,9 +65,9 @@ The repository includes the demo examples in my presentation of ROS Taiwan 2025.
 
   ```bash
   # Terminal 1
+  unset ZENOH_ROUTER_CONFIG_URI
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
-  export ZENOH_CONFIG_OVERRIDE='connect/endpoints=["tcp/172.17.0.2:7447"]'
-  ros2 run rmw_zenoh_cpp rmw_zenohd
+  ZENOH_CONFIG_OVERRIDE='connect/endpoints=["tcp/172.17.0.2:7447"]' ros2 run rmw_zenoh_cpp rmw_zenohd
   # Terminal 2
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
   ros2 run demo_nodes_cpp listener --ros-args -r chatter:=topicA
@@ -80,6 +82,7 @@ The repository includes the demo examples in my presentation of ROS Taiwan 2025.
   # Check the config
   grep -B 20 "topicB" config/demo2.json5
   # Terminal 1
+  unset ZENOH_ROUTER_CONFIG_URI
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
   export ZENOH_ROUTER_CONFIG_URI=$PWD/config/demo2.json5
   ros2 run rmw_zenoh_cpp rmw_zenohd
@@ -99,6 +102,7 @@ The repository includes the demo examples in my presentation of ROS Taiwan 2025.
 
   ```bash
   # Terminal 1
+  unset ZENOH_ROUTER_CONFIG_URI
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
   ros2 run rmw_zenoh_cpp rmw_zenohd
   # Terminal 2
@@ -119,9 +123,9 @@ The repository includes the demo examples in my presentation of ROS Taiwan 2025.
 
   ```bash
   # Terminal 1
+  unset ZENOH_ROUTER_CONFIG_URI
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
-  export ZENOH_CONFIG_OVERRIDE='connect/endpoints=["tcp/172.17.0.2:7447"]'
-  ros2 run rmw_zenoh_cpp rmw_zenohd
+  ZENOH_CONFIG_OVERRIDE='connect/endpoints=["tcp/172.17.0.2:7447"]' ros2 run rmw_zenoh_cpp rmw_zenohd
   # Terminal 2
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
   ros2 run image_tools showimage
@@ -152,9 +156,11 @@ The repository includes the demo examples in my presentation of ROS Taiwan 2025.
   * Assume the IP you want to connect is 172.17.0.4
 
   ```bash
+  # Terminal 1
+  unset ZENOH_ROUTER_CONFIG_URI
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
-  export ZENOH_CONFIG_OVERRIDE='connect/endpoints=["tcp/172.17.0.4:7447"]'
-  ros2 run rmw_zenoh_cpp rmw_zenohd
+  ZENOH_CONFIG_OVERRIDE='connect/endpoints=["tcp/172.17.0.4:7447"]' ros2 run rmw_zenoh_cpp rmw_zenohd
+  # Terminal 2
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
   ros2 run turtlesim turtlesim_node
   ```
@@ -171,9 +177,11 @@ The repository includes the demo examples in my presentation of ROS Taiwan 2025.
   * Assume the IP you want to connect is 172.17.0.4
 
   ```bash
+  # Terminal 1
+  unset ZENOH_ROUTER_CONFIG_URI
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
-  export ZENOH_CONFIG_OVERRIDE='connect/endpoints=["tcp/172.17.0.4:7447"]'
-  ros2 run rmw_zenoh_cpp rmw_zenohd
+  ZENOH_CONFIG_OVERRIDE='connect/endpoints=["tcp/172.17.0.4:7447"]' ros2 run rmw_zenoh_cpp rmw_zenohd
+  # Terminal 2
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
   ros2 run turtlesim turtle_teleop_key
   ```
@@ -187,6 +195,7 @@ The repository includes the demo examples in my presentation of ROS Taiwan 2025.
 * Run zenohd for discovery
 
   ```bash
+  unset ZENOH_ROUTER_CONFIG_URI
   export RMW_IMPLEMENTATION=rmw_zenoh_cpp
   ros2 run rmw_zenoh_cpp rmw_zenohd
   ```
