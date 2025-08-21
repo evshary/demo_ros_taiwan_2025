@@ -11,4 +11,5 @@ fi
 xhost +local:
 docker run -it --privileged --rm \
         -e QT_X11_NO_MITSHM=1 -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix/:/tmp/.X11-unix \
+        -v $(pwd):/workspace --workdir /workspace \
         ${DOCKER_IMAGE}
