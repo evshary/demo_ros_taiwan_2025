@@ -137,3 +137,54 @@ The repository includes the demo examples in my presentation of ROS Taiwan 2025.
   export ZENOH_ROUTER_CONFIG_URI=$PWD/config/demo3.json5
   ros2 run rmw_zenoh_cpp rmw_zenohd
   ```
+
+## Demo 4: Traverse the Internet
+
+* Run the 1st container
+
+  ```bash
+  ./run.sh
+  # Split the terminal
+  tmux
+  ```
+
+* Run turtlesim
+
+  ```bash
+  export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+  export ZENOH_CONFIG_OVERRIDE='connect/endpoints=["tcp/172.17.0.4:7447"]'
+  ros2 run rmw_zenoh_cpp rmw_zenohd
+  export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+  ros2 run turtlesim turtlesim_node
+  ```
+
+* Run the 2nd container
+
+  ```bash
+  ./run.sh
+  # Split the terminal
+  tmux
+  ```
+
+* Run teleop
+
+  ```bash
+  export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+  export ZENOH_CONFIG_OVERRIDE='connect/endpoints=["tcp/172.17.0.4:7447"]'
+  ros2 run rmw_zenoh_cpp rmw_zenohd
+  export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+  ros2 run turtlesim turtle_teleop_key
+  ```
+
+* Run the 3rd container
+
+  ```bash
+  ./run.sh
+  ```
+
+* Run zenohd for discovery
+
+  ```bash
+  export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+  ros2 run rmw_zenoh_cpp rmw_zenohd
+  ```
